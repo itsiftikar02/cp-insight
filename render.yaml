@@ -16,8 +16,6 @@ services:
     rootDir: backend
     dockerfilePath: ./Dockerfile
     plan: free
-    # Run migrations on each boot, then start gunicorn on Render's $PORT.
-    dockerCommand: sh -c "python manage.py migrate && gunicorn cpinsight.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
       - key: DJANGO_SECRET_KEY
         generateValue: true          # Render generates a strong secret
@@ -37,7 +35,6 @@ services:
     rootDir: dashboard
     dockerfilePath: ./Dockerfile
     plan: free
-    dockerCommand: sh -c "streamlit run Home.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true --server.enableCORS=false --server.enableXsrfProtection=false"
     envVars:
       # Render injects the backend's hostname here; api_client.py builds the URL.
       - key: API_HOST
