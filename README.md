@@ -7,6 +7,15 @@ deterministic recommendations, a revision planner, and daily goals.
 **Stack:** Django · Django REST Framework · PostgreSQL · JWT auth · Streamlit ·
 Pandas · Plotly · Docker.
 
+## 🚀 Live Demo
+
+**App:** https://cpinsight-dashboard.onrender.com
+**API:** https://cpinsight-backend.onrender.com/api
+
+> Hosted on Render's free tier, so the first load after a period of inactivity
+> takes ~30–60 seconds while the service wakes up. Register an account, connect
+> a Codeforces handle (e.g. `tourist`), and the dashboard fills with analytics.
+
 ---
 
 ## 1. Architecture overview
