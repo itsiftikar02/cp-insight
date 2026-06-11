@@ -178,3 +178,6 @@ Schedule it with Windows Task Scheduler or cron (e.g. every 6 hours).
 - The backend already runs under gunicorn in its Dockerfile.
 - Any host that runs Docker (Render, Railway, a VPS, etc.) can run
   `docker compose up`.
+
+---
+_Built by itsiftikar02._
