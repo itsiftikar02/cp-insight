@@ -8,7 +8,15 @@ import os
 import requests
 import streamlit as st
 
-API_BASE = os.getenv("API_BASE", "http://localhost:8000/api")
+# Resolve the API base URL in this order of preference:
+#   1. API_BASE   - a full URL, e.g. http://backend:8000/api (used by docker-compose)
+#   2. API_HOST   - just a hostname (Render injects the backend's host here);
+#                   we build the https URL from it
+#   3. localhost  - sensible default for plain local runs
+API_BASE = os.getenv("API_BASE")
+if not API_BASE:
+    _api_host = os.getenv("API_HOST")
+    API_BASE = f"https://{_api_host}/api" if _api_host else "http://localhost:8000/api"
 
 
 def _headers():
