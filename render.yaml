@@ -36,9 +36,6 @@ services:
     dockerfilePath: ./Dockerfile
     plan: free
     envVars:
-      # Render injects the backend's hostname here; api_client.py builds the URL.
-      - key: API_HOST
-        fromService:
-          type: web
-          name: cpinsight-backend
-          property: host
+      # Point the dashboard at the backend's public URL.
+      - key: API_BASE
+        value: https://cpinsight-backend.onrender.com/api
